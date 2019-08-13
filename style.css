@@ -1,15 +1,35 @@
+@font-face {
+  font-family: streetfighter;
+  src: url('./fonts/SSF4-ABUKET.woff') format('woff'),
+    url('./fonts/SSF4 ABUKET.ttf') format('truetype');
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+body * {
+  box-sizing: border-box;
+  font-family: 'streetfighter', Roboto, sans-serif;
+  letter-spacing: 6px;
+  word-spacing: 14px;
+  -webkit-text-stroke-width: 5px;
+  -webkit-text-stroke-color: black;
+}
+
 .container {
   width: 100vw;
-  height: 100vh;
+  height: 140vh;
   position: absolute;
-  top: 0;
+  top: -15vh;
   margin: 0;
-  background: orange;
+  background: blue;
   overflow: hidden;
 }
 
 .section {
-  height: 60%;
+  height: 50%;
   width: 100%;
   position: relative;
 }
@@ -23,28 +43,54 @@
   transform: skewY(-45deg);
 }
 .section_one .background{
-  margin-top: -10%;
-  background-color: orange;
+  background-color: blue;
 }
 
 .section_two .background {
-  background-color: black;
-  height: 130%;
+  background-color: #eae75bde;
+  height: 110%;
+}
+
+.text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
 }
 
 h1 {
-  position: absolute;
   font-size: 64px;
+  width: 100%;
+  position: absolute;
+  padding-left: 60px;
 }
 
 .section_one h1 {
-  top: 45%;
-  left:20%;
-  color: black;
+  background: linear-gradient(to bottom, #FF0D00 0%, #FFFFBD 100%);
+  -webkit-background-clip: text;
+  width: 100%;
+  -webkit-text-fill-color: transparent;
+  top: 60%;
 }
 
 .section_two h1 {
-  bottom: 65%;
-  right: 10%;
-  color: white;
+    color: white;
+    background: linear-gradient(to bottom, #FF0D00 0%, #FFFFBD 100%);
+    -webkit-background-clip: text;
+    width: 100%;
+    -webkit-text-fill-color: transparent;
+}
+
+.section_two .text {
+  left: 20%;
+  top: 10%;
+}
+
+.shadow {
+  color: black !important;
+  -webkit-text-fill-color: black !important;
+  font-size: 66px;
+  font-size: 65px;
+  margin-left: 2px;
+  margin-top: 50px;
 }

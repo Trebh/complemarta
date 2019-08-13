@@ -6,15 +6,42 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <audio src="sound/select.mp3" autoplay volume="1" loop="true"></audio>
   <div class="container">
     <div class="section section_one">
       <div class="background"></div>
-      <h1>TEAM DANCINI</h1>
+      <div class="text">
+        <h1 class="shadow">TEAM DANCINI</h1>
+        <h1>TEAM DANCINI</h1>
+      </div>
     </div>
     <div class="section section_two">
       <div class="background"></div>
-      <h1>TEAM IANNOTTO</h1>
+      <div class="text">
+        <h1 class="shadow">TEAM IANNOTTO</h1>
+        <h1>TEAM IANNOTTO</h1>
+      </div>
     </div>
   </div>
 </body>
+
+<script>
+var audio = document.querySelector('audio');
+var dancini = document.querySelectorAll('.section_one h1');
+var iannotto = document.querySelectorAll('.section_two h1');
+audio.addEventListener('load', function(){
+  audio.play();
+});
+dancini.forEach(function(el) {
+  el.addEventListener('click', function() {
+    audio.src = 'sound/guile.mp3';
+  })
+})
+iannotto.forEach(function(el) {
+  el.addEventListener('click', function() {
+    audio.src = 'sound/ken.mp3';
+  })
+})
+
+</script>
 </html>
