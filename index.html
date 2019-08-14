@@ -3,11 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <title>28nine2019</title>
+  <style type="text/css">
+    .hidden {display:none;}
+  </style>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <audio src="sound/select.mp3" autoplay volume="1" loop="true"></audio>
-  <div class="container">
+  <audio id="audio-select" src="sound/select.mp3" volume="1" loop="true"></audio>
+  <audio id="audio-guile" src="sound/guile.mp3" volume="1" loop="true"></audio>
+  <audio id="audio-ken" src="sound/ken.mp3" volume="1" loop="true"></audio>
+  <div class="start">
+    <h1>START</h1>
+    <p>28 settembre</p>
+  </div>
+  <div class="container hidden">
     <div class="section section_one">
       <div class="background"></div>
       <div class="text">
@@ -22,26 +31,51 @@
         <h1>TEAM IANNOTTO</h1>
       </div>
     </div>
+<!--     <div class="center">
+      <h1 id="date"><span>28</span><span>Settembre</span></h1>
+    </div> -->
   </div>
 </body>
 
 <script>
-var audio = document.querySelector('audio');
+
+console.log('script starting')
+var audioselect = document.querySelector('#audio-select');
+document.querySelector('html').classList.add('hidden');
+var startView = document.querySelector('.start');
+var mainView = document.querySelector('.container');
+
+startView.addEventListener('click', function(){
+  startView.classList.add('hidden');
+  mainView.classList.remove('hidden');
+  audioselect.play().catch(console.log);
+});
+
+document.body.classList.add('js-loading');
+console.log(audioselect, document.body)
+audioselect.addEventListener('canplay', soundLoaded);
+function soundLoaded() {
+  console.log('canplay event')
+  document.querySelector('html').classList.remove('hidden');
+  document.body.classList.remove('js-loading');
+}
 var dancini = document.querySelectorAll('.section_one h1');
 var iannotto = document.querySelectorAll('.section_two h1');
-audio.addEventListener('load', function(){
-  audio.play();
-});
 dancini.forEach(function(el) {
   el.addEventListener('click', function() {
-    audio.src = 'sound/guile.mp3';
+    audioselect.src = 'sound/guile.mp3';
+    audioselect.currentTime = 0.8;
+    audioselect.play().catch(console.log);
   })
 })
 iannotto.forEach(function(el) {
   el.addEventListener('click', function() {
-    audio.src = 'sound/ken.mp3';
+    audioselect.src = 'sound/ken.mp3';
+    audioselect.currentTime = 0.8;
+    audioselect.play().catch(console.log);
   })
 })
+
 
 </script>
 </html>
